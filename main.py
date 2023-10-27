@@ -8,6 +8,7 @@ Allows practice with version control systems and developing familiarity with the
 """
 
 
+# Simple menu display function
 def display_menu():
     print("Menu")
     print("-------------")
@@ -17,6 +18,7 @@ def display_menu():
     print()
 
 
+# Encoder using list and append method to return encoded password
 def encode(password):
     encoded_password_list = []
     for i in password:
@@ -28,6 +30,7 @@ def encode(password):
     return encoded_password
 
 
+# FIXME: Make a decoder and add it to option 2 to the main program below!
 def main():
     run = True
     while run:
