@@ -30,7 +30,18 @@ def encode(password):
     return encoded_password
 
 
-# FIXME: Make a decoder and add it to option 2 to the main program below!
+def decode(encoded_password: str) -> str:
+    decoded = []
+    for char in encoded_password:
+        if char.isdigit():
+            # Decrement the number by 3 and take modulo 10 to wrap around between 0-9
+            decoded_char = str((int(char) - 3) % 10)
+        else:
+            decoded_char = char  # If it's not a digit, keep it unchanged
+        decoded.append(decoded_char)
+    return ''.join(decoded)
+
+
 def main():
     run = True
     while run:
@@ -40,10 +51,10 @@ def main():
             orig_password = input("Please enter your password to encode: ")
             encoded_password = encode(orig_password)
             print("Your password has been encoded and stored!")
-            print(f"Your encoded one is {encoded_password}")
             print()
         elif option == "2":
-            pass
+            print(f"The encoded password is {encoded_password},"
+                  f" and the original password is {decode(encoded_password)}.\n")
         else:
             run = False
 
